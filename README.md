@@ -1,3 +1,3 @@
-# dungeons-and-dragons-shop-maker
+# dungeons-and-dragons-shop
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-ts-uqshat)

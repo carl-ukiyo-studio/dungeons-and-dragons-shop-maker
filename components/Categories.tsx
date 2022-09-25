@@ -23,21 +23,23 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <h1 className="text-2xl text-gray-700 font-bold mb-5">
+    <div className="container mx-auto bg-black rounded-xl shadow p-8 m-10">
+      <h1 className="text-2xl text-red-800 font-bold mb-5">
         Equipment Categories
       </h1>
       {loading ? (
         <p>loading categories ...</p>
       ) : (
         <div>
-          <p className="text-l text-sky-500 mb-5">
-            There are {categories?.count} categories!
+          <p className="text-l text-gray-500 mb-5">
+            There are{' '}
+            <span className="text-gray-400 font-bold">{categories?.count}</span>{' '}
+            categories!
           </p>
           <ul>
             {categories?.results.map((result) => {
               return (
-                <li className="text-sm" key={result.name}>
+                <li className="text-sm text-gray-200 mb-1" key={result.name}>
                   {' '}
                   {result.name}{' '}
                 </li>
