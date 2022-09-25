@@ -1,5 +1,5 @@
 const config = {
-  api: 'https://jsonplaceholder.typicode.com',
+  api: 'https://www.dnd5eapi.co/api',
   options: {
     headers: { 'content-type': 'application/json' },
   },
