@@ -1,16 +1,18 @@
 import * as React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import ApiService from '../lib/ApiService';
 
 const Equipment = () => {
+  const location = useLocation();
   const [loading, setLoading] = React.useState(false);
-  const [categories, setCategories] =
-    React.useState<IEquipmentCategoriesResult>(undefined);
+  const [equipment, setEquipment] = React.useState<any>(undefined);
 
-  const getEquipmentCategories = async () => {
+  const getEquipmentCategory = async () => {
     try {
       setLoading(true);
-      const results = await ApiService.httpGet('/equipment-categories/');
-      setCategories(results);
+      const results = await ApiService.httpGet(`/api/${location.pathname}`);
+      console.log(location);
+      setEquipment(results);
     } catch (e) {
       console.error(e.message);
     } finally {
@@ -19,32 +21,32 @@ const Equipment = () => {
   };
 
   React.useEffect(() => {
-    getEquipmentCategories();
+    getEquipmentCategory();
   }, []);
 
   return (
     <div className="container mx-auto bg-black rounded-xl shadow p-8 m-10">
       <h1 className="text-2xl text-red-800 font-bold mb-5">
-        Equipment Categories
+        {equipment?.name}
       </h1>
       {loading ? (
-        <p>loading categories ...</p>
+        <p>loading equipment ...</p>
       ) : (
         <div>
-          <p className="text-l text-gray-500 mb-5">
-            There are{' '}
-            <span className="text-gray-400 font-bold">{categories?.count}</span>{' '}
-            categories!
-          </p>
-          <ul>
-            {categories?.results.map((result) => {
-              return (
-                <li className="text-sm text-gray-200 mb-1" key={result.name}>
-                  {result.name}
-                </li>
-              );
-            })}
-          </ul>
+          <Link
+            to={`/equipment-categories/${equipment?.equipment_category.index}`}
+          >
+            <p className="text-l text-gray-500 mb-5">
+              Category:{' '}
+              <span className="text-gray-300 ml-1 font-bold">
+                {equipment?.equipment_category.name}
+              </span>
+            </p>
+          </Link>
+          ;
+          {equipment?.desc.map((desc) => {
+            <p className="text-l text-gray-500 mb-5">{desc}</p>;
+          })}
         </div>
       )}
     </div>

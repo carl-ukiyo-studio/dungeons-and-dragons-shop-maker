@@ -1,5 +1,5 @@
 const config = {
-  api: 'https://www.dnd5eapi.co/api',
+  api: 'https://www.dnd5eapi.co',
   options: {
     headers: { 'content-type': 'application/json' },
   },

@@ -1,10 +1,4 @@
-interface IEquipmentCategoriesResultItem {
-  index: string;
-  name: string;
-  url: string;
-}
-
-interface IEquipmentCategoriesResult {
+interface IEquipmentCategories {
   count: number;
-  results: IEquipmentCategoriesResultItem[];
+  results: IResult[];
 }
