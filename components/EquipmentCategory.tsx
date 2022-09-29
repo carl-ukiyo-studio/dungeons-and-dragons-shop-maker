@@ -12,6 +12,7 @@ const EquipmentCategory = () => {
       setLoading(true);
       const results = await ApiService.httpGet(`/api/${location.pathname}`);
       setCategory(results);
+      console.log(JSON.stringify(results));
     } catch (e) {
       console.error(e.message);
     } finally {

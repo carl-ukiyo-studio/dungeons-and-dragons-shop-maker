@@ -12,6 +12,7 @@ const Equipment = () => {
       setLoading(true);
       const results = await ApiService.httpGet(`/api/${location.pathname}`);
       console.log(location);
+      console.log(JSON.stringify(results));
       setEquipment(results);
     } catch (e) {
       console.error(e.message);

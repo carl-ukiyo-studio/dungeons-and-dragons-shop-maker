@@ -12,6 +12,7 @@ const EquipmentCategories = () => {
       setLoading(true);
       const results = await ApiService.httpGet('/api/equipment-categories/');
       setCategories(results);
+      console.log(JSON.stringify(results));
     } catch (e) {
       console.error(e.message);
     } finally {
