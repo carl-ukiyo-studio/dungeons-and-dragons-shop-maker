@@ -1,15 +1,22 @@
 import * as React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
 import Header from './components/Header';
-import Test from './components/Categories';
-import Categories from './components/Categories';
+import NavBar from './components/NavBar';
+import Equipment from './components/Equipment';
 
-const App = () => {
-  return (
+const App = () => (
+  <div>
     <div>
       <Header />
-      <Categories />
+      <NavBar />
+
+      <Routes>
+        <Route path="/equipment" element={<Equipment />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
-  );
-};
+  </div>
+);
 
 export default App;

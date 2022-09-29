@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ApiService from '../lib/ApiService';
 
-const Categories = () => {
+const Equipment = () => {
   const [loading, setLoading] = React.useState(false);
   const [categories, setCategories] =
     React.useState<IEquipmentCategoriesResult>(undefined);
@@ -40,8 +40,7 @@ const Categories = () => {
             {categories?.results.map((result) => {
               return (
                 <li className="text-sm text-gray-200 mb-1" key={result.name}>
-                  {' '}
-                  {result.name}{' '}
+                  {result.name}
                 </li>
               );
             })}
@@ -52,4 +51,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Equipment;
